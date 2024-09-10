@@ -2,7 +2,9 @@
 <idea-plugin>
     <id>be.sigmadelta.ballastcompanion</id>
     <name>Ballast Template Files Generator</name>
+    <description>This plugin helps you generate the necessary boilerplate code for the Ballast mental-model.</description>
     <vendor>Sigma Delta BV</vendor>
+    <version>0.0.1</version>
 
     <depends>com.intellij.modules.platform</depends>
 
