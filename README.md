@@ -5,6 +5,8 @@
 This plugin is designed to use in conjunction with the [Ballast MVI Kotlin Multiplatform library](https://github.com/copper-leaf/ballast) by [copper-leaf](https://github.com/copper-leaf).
 <!-- Plugin description end -->
 
+### Available through the Jetbrains Marketplace (IDE > Plugins > Marketplace) or downloadable [here](https://plugins.jetbrains.com/plugin/25295-ballast-template-files-generator)!
+
 ![](./docs/screenshot.png)
 
 ## Template generation
