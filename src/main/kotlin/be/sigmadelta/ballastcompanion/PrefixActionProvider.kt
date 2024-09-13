@@ -36,10 +36,10 @@ class PrefixActionProvider: AnAction() {
         directory ?: return
 
         val fileMap = mapOf(
-            Pair("${prefix}ScreenContract.kt", getContractFile(prefix)),
-            Pair("${prefix}ScreenInputHandler.kt", getInputHandlerFile(prefix)),
-            Pair("${prefix}ScreenEventHandler.kt", getEventHandlerFile(prefix)),
-            Pair("${prefix}ScreenViewModel.kt", getViewModelFile(prefix))
+            Pair("${prefix}Contract.kt", getContractFile(prefix)),
+            Pair("${prefix}InputHandler.kt", getInputHandlerFile(prefix)),
+            Pair("${prefix}EventHandler.kt", getEventHandlerFile(prefix)),
+            Pair("${prefix}ViewModel.kt", getViewModelFile(prefix))
         )
 
         WriteCommandAction.runWriteCommandAction(project) {
