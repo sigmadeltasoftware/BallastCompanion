@@ -12,17 +12,17 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
 
-class ${prefix}ViewModel(
+class ${prefix}ScreenViewModel(
     viewModelCoroutineScope: CoroutineScope,
 ) : BasicViewModel<
-        ${prefix}Contract.Inputs,
-        ${prefix}Contract.Events,
-        ${prefix}Contract.State
+        ${prefix}ScreenContract.Inputs,
+        ${prefix}ScreenContract.Events,
+        ${prefix}ScreenContract.State
         >(
     config = BallastViewModelConfiguration.Builder()
         .withViewModel(
-            initialState = ${prefix}Contract.State(),
-            inputHandler = ${prefix}InputHandler(),
+            initialState = ${prefix}ScreenContract.State(),
+            inputHandler = ${prefix}ScreenInputHandler(),
         )
         .dispatchers(
             inputsDispatcher = Dispatchers.Main.immediate,
@@ -31,7 +31,7 @@ class ${prefix}ViewModel(
             interceptorDispatcher = Dispatchers.Default
         )
         .build(),
-    eventHandler = ${prefix}EventHandler(),
+    eventHandler = ${prefix}ScreenEventHandler(),
     coroutineScope = viewModelCoroutineScope,
 )
 """

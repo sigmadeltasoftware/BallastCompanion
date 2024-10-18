@@ -11,9 +11,21 @@ This plugin is designed to use in conjunction with the [Ballast MVI Kotlin Multi
 
 ## Template generation
 
-The plugin will generate the 4 core files necessary for the [Ballast mental-model](https://copper-leaf.github.io/ballast/wiki/usage/mental-model/).
+The plugin will generate the 4 core files necessary for the [Ballast mental-model](https://copper-leaf.github.io/ballast/wiki/usage/mental-model/), including a file containing the
+Composable screen.
 
 Given the `Example` prefix/feature, the following will be generated:
+
+### Screen
+```kotlin
+@Composable
+fun ExampleScreen(
+    state: ExampleScreenContract.State,
+    postInput: (ExampleScreenContract.Inputs) -> Unit
+) {
+
+}
+```
 
 ### Contract
 ```kotlin
@@ -33,12 +45,15 @@ typealias ExampleContractInputHandler = InputHandler<ExampleContract.Inputs, Exa
 typealias ExampleContractInputHandlerScope = InputHandlerScope<ExampleContract.Inputs, ExampleContract.Events, ExampleContract.State>
 
 class ExampleInputHandler : ExampleContractInputHandler {
-    override suspend fun ExampleContractInputHandlerScope.handleInput(input: ExampleContract.Inputs) {
+    override suspend fun ExampleContractInputHandlerScope.handleInput(input: ExampleContract.Inputs) = try {
         when (input) {
-            
+
         }
+        Unit
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
-}   
+}
 ```
 
 ### EventHandler
@@ -47,10 +62,13 @@ typealias ExampleContractEventHandler = EventHandler<ExampleContract.Inputs, Exa
 typealias ExampleContractEventHandlerScope = EventHandlerScope<ExampleContract.Inputs, ExampleContract.Events, ExampleContract.State>
 
 class ExampleEventHandler : ExampleContractEventHandler {
-    override suspend fun ExampleContractEventHandlerScope.handleEvent(event: ExampleContract.Events) {
+    override suspend fun ExampleContractEventHandlerScope.handleEvent(event: ExampleContract.Events) = try {
         when (event) {
-            
+    
         }
+        Unit
+    } catch(e: Exception) {
+        e.printStackTrace()
     }
 }
 ```

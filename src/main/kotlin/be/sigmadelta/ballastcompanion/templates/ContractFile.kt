@@ -6,7 +6,7 @@ fun getContractFile(prefix: String) =
 import androidx.compose.runtime.Immutable
 
 
-object ${prefix}Contract {
+object ${prefix}ScreenContract {
 
     @Immutable
     data class State()

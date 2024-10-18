@@ -6,14 +6,17 @@ fun getEventHandlerFile(prefix: String) =
 import com.copperleaf.ballast.EventHandler
 import com.copperleaf.ballast.EventHandlerScope
 
-typealias ${prefix}ContractEventHandler = EventHandler<${prefix}Contract.Inputs, ${prefix}Contract.Events, ${prefix}Contract.State>
-typealias ${prefix}ContractEventHandlerScope = EventHandlerScope<${prefix}Contract.Inputs, ${prefix}Contract.Events, ${prefix}Contract.State>
+typealias ${prefix}ScreenContractEventHandler = EventHandler<${prefix}ScreenContract.Inputs, ${prefix}ScreenContract.Events, ${prefix}ScreenContract.State>
+typealias ${prefix}ScreenContractEventHandlerScope = EventHandlerScope<${prefix}ScreenContract.Inputs, ${prefix}ScreenContract.Events, ${prefix}ScreenContract.State>
 
-class ${prefix}EventHandler : ${prefix}ContractEventHandler {
-    override suspend fun ${prefix}ContractEventHandlerScope.handleEvent(event: ${prefix}Contract.Events) {
+class ${prefix}ScreenEventHandler : ${prefix}ScreenContractEventHandler {
+    override suspend fun ${prefix}ScreenContractEventHandlerScope.handleEvent(event: ${prefix}ScreenContract.Events) = try {
         when (event) {
             
         }
+        Unit
+    } catch(e: Exception) {
+        e.printStackTrace()
     }
 }    
 """

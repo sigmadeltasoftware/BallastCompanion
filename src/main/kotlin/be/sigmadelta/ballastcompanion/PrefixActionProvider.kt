@@ -21,13 +21,18 @@ class PrefixActionProvider: AnAction() {
         }
 
         val prefix = Messages.showInputDialog(
-            "Enter the requested prefix:",
+            """Enter the desired prefix.
+                f.e.: With prefix 'Example', you will generate:
+                - [Example]Screen
+                - [Example]ScreenViewModel
+                - [Example]...
+            """.trimIndent(),
             "Ballast Template Generator",
             Messages.getQuestionIcon(),
         )
 
         if (prefix.isNullOrEmpty()) {
-            Messages.showInfoMessage("Empty!", "Result")
+            // User cancelled operation
             return
         }
         val project = e.project ?: return
@@ -36,10 +41,11 @@ class PrefixActionProvider: AnAction() {
         directory ?: return
 
         val fileMap = mapOf(
-            Pair("${prefix}Contract.kt", getContractFile(prefix)),
-            Pair("${prefix}InputHandler.kt", getInputHandlerFile(prefix)),
-            Pair("${prefix}EventHandler.kt", getEventHandlerFile(prefix)),
-            Pair("${prefix}ViewModel.kt", getViewModelFile(prefix))
+            Pair("${prefix}Screen.kt", getScreenFile(prefix)),
+            Pair("${prefix}ScreenContract.kt", getContractFile(prefix)),
+            Pair("${prefix}ScreenInputHandler.kt", getInputHandlerFile(prefix)),
+            Pair("${prefix}ScreenEventHandler.kt", getEventHandlerFile(prefix)),
+            Pair("${prefix}ScreenViewModel.kt", getViewModelFile(prefix))
         )
 
         WriteCommandAction.runWriteCommandAction(project) {
